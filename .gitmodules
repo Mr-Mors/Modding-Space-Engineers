@@ -8,3 +8,6 @@
 [submodule "Mors - Quality of Life"]
 	path = Mors - Quality of Life
 	url = https://github.com/Mr-Mors/Mods-SE-Quality-of-Life.git
+[submodule "Missing Blocks"]
+	path = Missing Blocks
+	url = https://github.com/Mr-Mors/Mods-SE-Missing-Blocks.git

@@ -5,3 +5,6 @@
 	path = More Cargo
 	url = https://github.com/Mr-Mors/Mods-SE-More-Cargo.git
 	branch = master
+[submodule "Mors - Quality of Life"]
+	path = Mors - Quality of Life
+	url = https://github.com/Mr-Mors/Mods-SE-Quality-of-Life.git

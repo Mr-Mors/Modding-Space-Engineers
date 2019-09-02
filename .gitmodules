@@ -11,3 +11,7 @@
 [submodule "Missing Blocks"]
 	path = Missing Blocks
 	url = https://github.com/Mr-Mors/Mods-SE-Missing-Blocks.git
+[submodule "Advanced Turret Control - Retro"]
+	path = Advanced Turret Control - Retro
+	url = https://github.com/Mr-Mors/Mods-SE-Advanced-Turret-Control.git
+	branch = retro

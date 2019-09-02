@@ -38,12 +38,20 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SDK", "SDK", "{78E8C93C-A8C
 		..\Source\Content\Data\CubeBlocks.sbc = ..\Source\Content\Data\CubeBlocks.sbc
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Advanced Turret Control", "Advanced Turret Control", "{6206EDA2-D3AD-4DBC-B230-7A543E87B4DC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data", "Data", "{B3F15F68-9514-4E05-B160-29A65612C277}"
+	ProjectSection(SolutionItems) = preProject
+		Advanced Turret Control\Data\Scripts\MyScripts\AdvancedTurretControl.cs = Advanced Turret Control\Data\Scripts\MyScripts\AdvancedTurretControl.cs
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{64B1BA81-390F-47F8-8A75-A61E53B523E8} = {5034FC8C-3D2C-484A-AE77-0C1EEE34D82F}
+		{B3F15F68-9514-4E05-B160-29A65612C277} = {6206EDA2-D3AD-4DBC-B230-7A543E87B4DC}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C93C6C2A-7176-460C-97A6-49349F8EC8A8}

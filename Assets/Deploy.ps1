@@ -6,7 +6,14 @@
 $wshell = New-Object -ComObject Wscript.Shell
 $title = "Space Engineers Deploy Mod v1.2"
 
-$project_path = Get-Item -Path $project
+$projects_path = (Get-Item $PSScriptRoot).Parent.FullName
+if(-not $projects_path)
+{
+    $wshell.Popup("Could not find the Projects folder", 0, $title, 0x0)
+    exit 1
+}
+
+$project_path = Get-Item -Path ($projects_path + "\" + $project)
 if(-not $project_path)
 {
     $wshell.Popup("Could not find the Project '$project'", 0, $title, 0x0)
@@ -30,6 +37,7 @@ if(-not $mod_path)
     $wshell.Popup("Could not find the deploy directory in:- $mod_path_raw", 0, $title, 0x0)
     exit 1
 }
+
 
 Try{
     $dir = [String]::Concat($project_path, "\Data")

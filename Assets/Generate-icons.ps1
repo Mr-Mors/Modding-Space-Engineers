@@ -12,10 +12,24 @@
 $wshell = New-Object -ComObject Wscript.Shell
 $title = "Space Engineers Generate Icons v1.4"
 
+#START config options
+
+# set the following to tell the script where to find/put things
+# Microsoft DirectTex - can be obtained from - https://github.com/Microsoft/DirectXTex/releases
+$texconv_raw = "D:\Modding\SpaceEngineers\Utils\TextureConverter\texconv.exe"
+#END config options
+
 #Setup
 $errorAction = "SilentlyContinue"
 
-$project_path = Get-Item -Path $project
+$projects_path = (Get-Item $PSScriptRoot).Parent.FullName
+if(-not $projects_path)
+{
+    $wshell.Popup("Could not find the Projects folder", 0, $title, 0x0)
+    exit 1
+}
+
+$project_path = Get-Item -Path ($projects_path + "\" + $project)
 if(-not $project_path)
 {
     $wshell.Popup("Could not find the Project '$project'", 0, $title, 0x0)
@@ -39,7 +53,7 @@ if(-not $im_composite)
     exit 1
 }
 
-$texconv_raw = "C:\users\mafoo\bin\texconv.exe"
+
 $texconv = Get-Item -Path $texconv_raw
 if(-not $texconv)
 {
@@ -48,20 +62,23 @@ if(-not $texconv)
 }
 
 
-$asset_path  = Get-ChildItem -Path $project_path.Parent.FullName Assets
+#$asset_path  = Get-ChildItem -Path $project_path.Parent.FullName Assets
+$asset_path  = Get-Item -Path  ($projects_path + "\Assets")
 if(-not $asset_path)
 {
     $wshell.Popup("Could not find the Assets directory at:- " + $project_path.Parent.FullName, 0, $title, 0x0)
     exit 1
 }
-$asset_src_path  = Get-ChildItem -Path $asset_path.FullName Images
+#$asset_src_path  = Get-ChildItem -Path $asset_path.FullName Images
+$asset_src_path  = Get-Item -Path  ($projects_path + "\Assets\Images")
 if(-not $asset_src_path)
 {
     $wshell.Popup("Could not find the Assets/Images directory at:- " + $asset_path.FullName, 0, $title, 0x0)
     exit 1
 }
 
-$src_path = Get-ChildItem -Path $project_path.FullName Sources
+#$src_path = Get-ChildItem -Path $project_path.FullName Sources
+$src_path  = Get-Item -Path  ($projects_path + "\" + $project + "\Sources")
 if(-not $src_path)
 {
     $wshell.Popup("Could not find the Sources directory in:- $src_path_raw", 0, $title, 0x0)
@@ -99,6 +116,7 @@ Try{
 
 			#& $im_convert.FullName $icon.FullName -background none -colorspace gray -sigmoidal-contrast 10,50% -fill blue -tint 50 $dst_file
 			#& $im_convert.FullName $icon.FullName -alpha off -fill blue -colorize 10% -alpha on $dst_file
+            & $im_convert.FullName $icon.FullName $dst_file
 			
 			if($LastExitCode){
 			  throw "Failed to execute "+$im_convert.FullName.ToLower()+" "+$icon.FullName+" -fill blue -tint 100 $dst_file";
@@ -123,7 +141,7 @@ Try{
 	if($LastExitCode){
 		throw "Failed to execute "+$texconv.FullName+" -y -f BC3_UNORM -ft dds -o "+$dst_dir.FullName+" $icon_src";
 	}
-	#Remove-Item -Path $tmp_dir -Force -Recurse
+	Remove-Item -Path $tmp_dir -Force -Recurse
     foreach ($icon in Get-ChildItem -Path $dst_dir.FullName *.DDS){
 	    $dst_file = $icon.BaseName + ".dds"
 		Rename-Item -Force -Path $icon.FullName -NewName $dst_file

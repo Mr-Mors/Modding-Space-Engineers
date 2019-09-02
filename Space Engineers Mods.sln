@@ -1,0 +1,51 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.572
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{C84C714D-6F97-4540-886F-C02C25DFBB32}"
+	ProjectSection(SolutionItems) = preProject
+		.gitattributes = .gitattributes
+		.gitignore = .gitignore
+		Assets\Build-Blender-textures.ps1 = Assets\Build-Blender-textures.ps1
+		Assets\Deploy.ps1 = Assets\Deploy.ps1
+		Assets\Generate-icons.ps1 = Assets\Generate-icons.ps1
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Missing Blocks", "Missing Blocks", "{5034FC8C-3D2C-484A-AE77-0C1EEE34D82F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data", "Data", "{64B1BA81-390F-47F8-8A75-A61E53B523E8}"
+	ProjectSection(SolutionItems) = preProject
+		Missing Blocks\Data\Antenna.sbc = Missing Blocks\Data\Antenna.sbc
+		Missing Blocks\Data\Buttons.sbc = Missing Blocks\Data\Buttons.sbc
+		Missing Blocks\Data\CoverWalls.sbc = Missing Blocks\Data\CoverWalls.sbc
+		Missing Blocks\Data\Doors.sbc = Missing Blocks\Data\Doors.sbc
+		Missing Blocks\Data\FlightSeats.sbc = Missing Blocks\Data\FlightSeats.sbc
+		Missing Blocks\Data\GravityGenerators.sbc = Missing Blocks\Data\GravityGenerators.sbc
+		Missing Blocks\Data\Hangar.sbc = Missing Blocks\Data\Hangar.sbc
+		Missing Blocks\Data\InteriorWall.sbc = Missing Blocks\Data\InteriorWall.sbc
+		Missing Blocks\Data\OreDetector.sbc = Missing Blocks\Data\OreDetector.sbc
+		Missing Blocks\Data\Pillar.sbc = Missing Blocks\Data\Pillar.sbc
+		Missing Blocks\Data\Shitter.sbc = Missing Blocks\Data\Shitter.sbc
+		Missing Blocks\Data\SlattedWindows.sbc = Missing Blocks\Data\SlattedWindows.sbc
+		Missing Blocks\Data\Stairs.sbc = Missing Blocks\Data\Stairs.sbc
+		Missing Blocks\Data\Weapons.sbc = Missing Blocks\Data\Weapons.sbc
+		Missing Blocks\Data\Windows.sbc = Missing Blocks\Data\Windows.sbc
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SDK", "SDK", "{78E8C93C-A8CF-4A5D-AF08-56C11D10DCD3}"
+	ProjectSection(SolutionItems) = preProject
+		..\Source\Content\Data\CubeBlocks.sbc = ..\Source\Content\Data\CubeBlocks.sbc
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{64B1BA81-390F-47F8-8A75-A61E53B523E8} = {5034FC8C-3D2C-484A-AE77-0C1EEE34D82F}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C93C6C2A-7176-460C-97A6-49349F8EC8A8}
+	EndGlobalSection
+EndGlobal

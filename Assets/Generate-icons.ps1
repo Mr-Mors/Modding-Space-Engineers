@@ -10,7 +10,7 @@
 	$use_extra_overlays=$false
 )
 $wshell = New-Object -ComObject Wscript.Shell
-$title = "Space Engineers Generate Icons v1.4"
+$title = "Space Engineers Generate Icons v1.5"
 
 #START config options
 
@@ -150,7 +150,7 @@ Try{
 Catch
 {
     $ErrorMessage = $_.Exception.Message
-    $wshell.Popup("Convert Failed: $ErrorMessage", 0, $title, 0x0)
+    #$wshell.Popup("Convert Failed: $ErrorMessage", 0, $title, 0x0)
 	Write-Error $ErrorMessage
     exit 1
 }

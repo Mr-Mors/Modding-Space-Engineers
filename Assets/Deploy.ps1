@@ -55,14 +55,30 @@ Try{
 		Copy-item -Path $src -Destination $dst -Recurse -Force
 	}
 	$dir = [String]::Concat($project_path, "\Textures")
-		if(Get-Item -Path $dir -ErrorAction SilentlyContinue){
+	if(Get-Item -Path $dir -ErrorAction SilentlyContinue){
 		New-Item -Path $mod_path -Name "Textures" -ItemType Directory -ErrorAction SilentlyContinue
 		$src = [String]::Concat($project_path, "\Textures\*")
 		$dst = [String]::Concat($mod_path, "\Textures\")
 		Copy-item -Path $src -Destination $dst -Recurse -Force
 	}
+
+    # If local modinfo exists copy it to mod folder, otherwise copy mod folders file back to project.
 	$src = [String]::Concat($project_path, "\modinfo.sbmi")
-	Copy-item -Exclude "Backup" -Path $src -Destination $mod_path
+    if(Test-Path -Path $src -PathType Leaf){
+    	Copy-item -Exclude "Backup" -Path $src -Destination $mod_path
+    }else{
+	    $src = [String]::Concat($mod_path, "\modinfo.sbmi")
+	    Copy-item -Exclude "Backup" -Path $src -Destination $project_path
+    }
+
+    # If local metadata exists copy it to mod folder, otherwise copy mod folders file back to project.
+	$src = [String]::Concat($project_path, "\metadata.mod")
+    if(Test-Path -Path $src -PathType Leaf){
+    	Copy-item -Exclude "Backup" -Path $src -Destination $mod_path
+    }else{
+	    $src = [String]::Concat($mod_path, "\metadata.mod")
+	    Copy-item -Exclude "Backup" -Path $src -Destination $project_path
+    }
 
 	$src = [String]::Concat($project_path, "\thumb.jpg")
 	if(Get-Item -Path $src -ErrorAction SilentlyContinue) {

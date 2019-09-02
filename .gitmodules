@@ -1,3 +1,6 @@
 [submodule "Wiki"]
 	path = Wiki
 	url = https://github.com/Mr-Mors/Modding-Space-Engineers.wiki.git
+[submodule "Advanced Turret Control"]
+	path = Advanced Turret Control
+	url = https://github.com/Mr-Mors/Mods-SE-Advanced-Turret-Control.git
